@@ -1,0 +1,12 @@
+# Ignore Datasets
+acne_raw/
+Organized_Acne_Data/
+*.zip
+
+# Ignore Large Model Files
+*.keras
+*.h5
+*.tflite
+
+# Ignore Kaggle Credentials
+kaggle.json
