@@ -86,9 +86,11 @@ The system processes user input locally and returns acne severity without requir
 
 ## 📱 App Screenshots
 
-![Home]<img width="303" height="442" alt="image" src="https://github.com/user-attachments/assets/9c575065-d169-488a-8ee1-9e85cf135cdb" />
+## Home
+<img width="303" height="442" alt="image" src="https://github.com/user-attachments/assets/9c575065-d169-488a-8ee1-9e85cf135cdb" />
 
-![Capture]<img width="294" height="414" alt="image" src="https://github.com/user-attachments/assets/93bb84b3-9aa3-4d38-b875-20d915e790a8" />
+## Capture
+<img width="294" height="414" alt="image" src="https://github.com/user-attachments/assets/93bb84b3-9aa3-4d38-b875-20d915e790a8" />
 
 
 ---
