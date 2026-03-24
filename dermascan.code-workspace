@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../DermaScan"
+		},
+		{
+			"name": "DermaScan",
+			"path": "../../DermaScan/DermaScan"
+		}
+	],
+	"settings": {}
+}

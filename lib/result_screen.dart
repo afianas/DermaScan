@@ -1,10 +1,61 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import '../services/model_service.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
   final File image;
 
   const ResultScreen({super.key, required this.image});
+
+  @override
+  State<ResultScreen> createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  late ModelService model;
+
+  String result = "Analyzing...";
+  double confidence = 0.0;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    model = ModelService();
+    runModel();
+  }
+  Future<void> runModel() async {
+  try {
+    print("🚀 Starting model...");
+
+    // Load model (only once ideally, but safe here)
+    await model.loadModel();
+    print("✅ Model loaded");
+
+    // Run prediction
+    final output = model.predict(widget.image);
+    print("🔥 Output: $output");
+
+    // Update UI
+    setState(() {
+      result = output['label'];
+      confidence = output['confidence'];
+      isLoading = false;
+    });
+
+  } catch (e) {
+    print("❌ ERROR in runModel: $e");
+
+    // Prevent infinite loading if something fails
+    setState(() {
+      isLoading = false;
+      result = "Error";
+      confidence = 0.0;
+    });
+  }
+}
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +102,7 @@ class ResultScreen extends StatelessWidget {
                     height: 180,
                     width: double.infinity,
                     decoration: boxStyle(color: Colors.grey[300]!),
-                    child: Image.file(image, fit: BoxFit.cover),
+                    child: Image.file(widget.image, fit: BoxFit.cover),
                   ),
 
                   const SizedBox(height: 20),
@@ -65,24 +116,19 @@ class ResultScreen extends StatelessWidget {
                     decoration: boxStyle(),
                     child: Row(
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: Container(color: Colors.green),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Container(color: Colors.orange),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: Container(color: Colors.red),
-                        ),
+                        Expanded(flex: 3, child: Container(color: Colors.green)),
+                        Expanded(flex: 3, child: Container(color: Colors.orange)),
+                        Expanded(flex: 4, child: Container(color: Colors.red)),
                       ],
                     ),
                   ),
 
                   const SizedBox(height: 5),
-                  const Text("Moderate"),
+
+                  // 👇 CHANGED (dynamic result)
+                  isLoading
+                      ? const CircularProgressIndicator()
+                      : Text(result),
 
                   const SizedBox(height: 20),
 
@@ -93,7 +139,16 @@ class ResultScreen extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(child: statBox("12%", "Affected Area")),
                       const SizedBox(width: 10),
-                      Expanded(child: statBox("94%", "Confidence")),
+
+                      // 👇 CHANGED (dynamic confidence)
+                      Expanded(
+                        child: statBox(
+                          isLoading
+                              ? "..."
+                              : "${(confidence * 100).toStringAsFixed(1)}%",
+                          "Confidence",
+                        ),
+                      ),
                     ],
                   ),
 
@@ -109,11 +164,11 @@ class ResultScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          flex: 9,
+                          flex: (confidence * 10).toInt().clamp(1, 10),
                           child: Container(color: Colors.blue),
                         ),
                         Expanded(
-                          flex: 1,
+                          flex: 10 - (confidence * 10).toInt().clamp(1, 10),
                           child: Container(color: Colors.grey[300]),
                         ),
                       ],
@@ -184,20 +239,20 @@ class ResultScreen extends StatelessWidget {
     );
   }
 
-BoxDecoration boxStyle({Color color = Colors.white}) {
-  return BoxDecoration(
-    color: color,
-    border: Border.all(
-      color: const Color(0xFF2D3748),
-      width: 2,
-    ),
-    boxShadow: const [
-      BoxShadow(
-        color: Color(0xFF2D3748),
-        offset: Offset(4, 4),
-        blurRadius: 0,
+  BoxDecoration boxStyle({Color color = Colors.white}) {
+    return BoxDecoration(
+      color: color,
+      border: Border.all(
+        color: const Color(0xFF2D3748),
+        width: 2,
       ),
-    ],
-  );
-}
+      boxShadow: const [
+        BoxShadow(
+          color: Color(0xFF2D3748),
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
+    );
+  }
 }
