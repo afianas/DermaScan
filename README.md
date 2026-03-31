@@ -90,17 +90,16 @@ The system processes user input locally and returns acne severity without requir
 *(Image to be added)*
 
 ### Upload Section
-![Upload Page](./cropped_Upload%20page.jpg)
+<img width="300" alt="Upload Page" src="./cropped_Upload page.jpg" />
 
 ### Selected Image
-![Image Used](./cropped_image%20used.jpg)
+<img width="300" alt="Image Used" src="./cropped_image used.jpg" />
 
 ### Analyzing Section
-![Analyzing Page](./cropped_analyzing%20page.jpg)
+<img width="300" alt="Analyzing Page" src="./cropped_analyzing page.jpg" />
 
 ### Results Page
-![Results Page](./cropped_results%20page.jpg)
-
+<img width="300" alt="Results Page" src="./cropped_results page.jpg" />
 ---
 
 ## 🛠️ Tech Stack
