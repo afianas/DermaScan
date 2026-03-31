@@ -87,7 +87,7 @@ The system processes user input locally and returns acne severity without requir
 ## 📱 App Screenshots
 
 ### Home Page
-*(Image to be added)*
+<img width="300" alt="Upload Page" src="./home_page.jpg" />
 
 ### Upload Section
 <img width="300" alt="Upload Page" src="./cropped_Upload page.jpg" />
