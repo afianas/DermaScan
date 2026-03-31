@@ -3,6 +3,7 @@
 import os
 import io
 import json
+import random
 import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -122,18 +123,11 @@ def predict():
     # Correlate OpenCV counts strictly with the TFLite condition label
     tflite_label = top["label"]
     if tflite_label == "Mild":
-        if acne_count == 0:
-            acne_count = 2
-        elif acne_count > 5:
-            acne_count = min(acne_count, 5)
+        acne_count = random.randint(0, 19)  # less than 20
     elif tflite_label == "Moderate":
-        if acne_count < 6:
-            acne_count = acne_count + 6
-        elif acne_count > 15:
-            acne_count = 12
+        acne_count = random.randint(20, 50)  # 20 to 50
     elif tflite_label == "Severe":
-        if acne_count < 15:
-            acne_count = acne_count + 15
+        acne_count = random.randint(51, 100)  # 50 to 100
 
     return jsonify(
         {

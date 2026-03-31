@@ -1,4 +1,4 @@
-const NGROK_URL = "https://cherly-rebellious-fructiferously.ngrok-free.dev"; // 🔁 replace this
+const NGROK_URL = "https://isis-vigintillionth-genially.ngrok-free.dev"; // 🔁 replace this
 export const predictImage = async (imageUri: string) => {
   const formData = new FormData();
 
@@ -16,6 +16,14 @@ export const predictImage = async (imageUri: string) => {
       // ❌ DO NOT set Content-Type manually
     },
   });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Backend error:", errText);
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return await response.json();
+
 
   const text = await response.text();
   console.log("RAW RESPONSE:", text);

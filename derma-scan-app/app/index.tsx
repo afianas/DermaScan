@@ -8,7 +8,7 @@ export default function HomeScreen() {
       <View style={styles.container}>
         <View style={styles.card}>
           {/* Header */}
-          <Text style={styles.title}>Skin Analyzer</Text>
+          <Text style={styles.title}>DermaScan</Text>
           <Text style={styles.subtitle}>
             AI-powered skin condition detection
           </Text>
