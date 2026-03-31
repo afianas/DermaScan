@@ -1,0 +1,50 @@
+
+
+{
+  "expo": {
+    "name": "SkinApp",
+    "slug": "skin-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "skinapp",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.skinapp.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Used to capture your face for skin analysis",
+        "NSPhotoLibraryUsageDescription": "Used to select images from your gallery"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E8F4F8"
+      },
+      "package": "com.skinapp.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow SkinApp to access your photos.",
+          "cameraPermission": "Allow SkinApp to use your camera."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow SkinApp to use your camera."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
