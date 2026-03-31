@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import '../services/model_service.dart';
-
+int spotCount = 0;
 class ResultScreen extends StatefulWidget {
   final File image;
 
@@ -40,6 +40,7 @@ class _ResultScreenState extends State<ResultScreen> {
     setState(() {
       result = output['label'];
       confidence = output['confidence'];
+      spotCount = output['count'];
       isLoading = false;
     });
 
@@ -49,7 +50,7 @@ class _ResultScreenState extends State<ResultScreen> {
     // Prevent infinite loading if something fails
     setState(() {
       isLoading = false;
-      result = "Error";
+      result = "Error: $e";
       confidence = 0.0;
     });
   }
@@ -128,16 +129,30 @@ class _ResultScreenState extends State<ResultScreen> {
                   // 👇 CHANGED (dynamic result)
                   isLoading
                       ? const CircularProgressIndicator()
-                      : Text(result),
+                      : Text(
+                          result.startsWith("Error") ? result : result.toUpperCase() + " ACNE DETECTED",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: result == "Mild" 
+                                ? Colors.green[700] 
+                                : result == "Moderate" 
+                                    ? Colors.orange[800] 
+                                    : result.startsWith("Error")
+                                        ? Colors.red[900]
+                                        : Colors.red[700],
+                          ),
+                        ),
 
                   const SizedBox(height: 20),
 
                   // 📊 Stats
                   Row(
                     children: [
-                      Expanded(child: statBox("11", "Detected Spots")),
+                      Expanded(child: statBox("$spotCount", "Spot Count")),
                       const SizedBox(width: 10),
-                      Expanded(child: statBox("12%", "Affected Area")),
+                      Expanded(child: statBox("0%", "Affected Area")),
                       const SizedBox(width: 10),
 
                       // 👇 CHANGED (dynamic confidence)
