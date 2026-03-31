@@ -40,7 +40,7 @@ DermaScan is a mobile-ready deep learning application that classifies acne sever
 
 ## 🏗️ System Architecture
 
-<img width="797" height="591" alt="image" src="https://github.com/user-attachments/assets/6a4b87a8-e4d0-41b2-95be-e363636f274b" />
+<img width="700" alt="System Architecture" src="https://github.com/user-attachments/assets/6a4b87a8-e4d0-41b2-95be-e363636f274b" />
 
 
 The system processes user input locally and returns acne severity without requiring cloud interaction.
@@ -50,18 +50,18 @@ The system processes user input locally and returns acne severity without requir
 ## 📊 Data Flow Diagrams
 
 ### Level 0 DFD
-<img width="538" height="494" alt="image" src="https://github.com/user-attachments/assets/0aae6fce-2631-4b8a-ada3-32ab504332a3" />
+<img width="500" alt="Level 0 DFD" src="https://github.com/user-attachments/assets/0aae6fce-2631-4b8a-ada3-32ab504332a3" />
 
 
 ### Level 1 DFD
-<img width="790" height="625" alt="image" src="https://github.com/user-attachments/assets/17b1bbc8-fe39-42c7-ab34-05f66da1d7ca" />
+<img width="700" alt="Level 1 DFD" src="https://github.com/user-attachments/assets/17b1bbc8-fe39-42c7-ab34-05f66da1d7ca" />
 
 
 ---
 
 ## 🔄 Workflow (State Diagram)
 
-<img width="503" height="738" alt="image" src="https://github.com/user-attachments/assets/efe3ca6c-e7a5-4c54-b31c-c36a5f58e7ed" />
+<img width="450" alt="Workflow" src="https://github.com/user-attachments/assets/efe3ca6c-e7a5-4c54-b31c-c36a5f58e7ed" />
 
 
 
