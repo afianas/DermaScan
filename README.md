@@ -84,22 +84,26 @@ The system processes user input locally and returns acne severity without requir
 
 ---
 
-## 📱 App Screenshots
+## 📱 Screenshots
 
-### Home Page
-<img width="300" alt="Upload Page" src="./home_page.jpg" />
-
-### Upload Section
-<img width="300" alt="Upload Page" src="./cropped_Upload page.jpg" />
-
-### Selected Image
-<img width="300" alt="Image Used" src="./cropped_image used.jpg" />
-
-### Analyzing Section
-<img width="300" alt="Analyzing Page" src="./cropped_analyzing page.jpg" />
-
-### Results Page
-<img width="300" alt="Results Page" src="./cropped_results page.jpg" />
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>🏠 Home</b></td>
+      <td align="center"><b>📤 Upload</b></td>
+      <td align="center"><b>🖼️ Selected</b></td>
+      <td align="center"><b>⚙️ Analyzing</b></td>
+      <td align="center"><b>📊 Results</b></td>
+    </tr>
+    <tr>
+      <td><img src="./home_page.jpg" width="150" alt="Home Page" /></td>
+      <td><img src="./cropped_Upload page.jpg" width="150" alt="Upload Section" /></td>
+      <td><img src="./cropped_image used.jpg" width="150" alt="Selected Image" /></td>
+      <td><img src="./cropped_analyzing page.jpg" width="150" alt="Analyzing" /></td>
+      <td><img src="./cropped_results page.jpg" width="150" alt="Results" /></td>
+    </tr>
+  </table>
+</div>
 
 
 ## 🛠️ Tech Stack
