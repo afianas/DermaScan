@@ -100,7 +100,7 @@ The system processes user input locally and returns acne severity without requir
 
 ### Results Page
 <img width="300" alt="Results Page" src="./cropped_results page.jpg" />
----
+
 
 ## 🛠️ Tech Stack
 
